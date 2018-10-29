@@ -1,0 +1,18 @@
+{
+  "compilerOptions": {
+    "declaration": true,
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "outDir": "dist",
+    "target": "es2015",
+    "sourceMap": true,
+    "skipDefaultLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "experimentalDecorators" : true,
+    // "noImplicitAny": true,
+    "strictNullChecks": true
+  },
+  "include": [ "src/**/*.ts"],
+  "exclude": [
+  ]
+}

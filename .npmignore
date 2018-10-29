@@ -1,0 +1,33 @@
+# platform related
+.DS_Store
+._.DS_Store
+*.log
+.gitignore
+.npmignore
+tslint.json
+tsconfig.json
+.editorconfig
+.travis.yml
+gulpfile.js
+
+# editor related
+.idea
+*.swp
+*.~
+.*.un~
+.vimrc
+
+# build related
+node_modules/
+coverage/
+*.tgz
+.nyc_output
+
+# develop
+/.vscode/
+/.git/
+mydev*
+/docs/
+/node_modules/
+test/
+src/

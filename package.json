@@ -1,0 +1,72 @@
+{
+  "name": "rx-operator",
+  "version": "0.0.1",
+  "discription": "rxjs operator based on JS(TS)",
+  "scripts": {
+    "preversion": "tsc && npm run lint && npm run cover",
+    "lint": "tslint src/**/*.ts test/**/*.ts",
+    "doc": "gulp doc",
+    "test": "node_modules/mocha/bin/_mocha --require ts-node/register --require source-map-support/register -t 3000 --recursive",
+    "cover": "node_modules/nyc/bin/nyc.js npm run test test/*.ts && node_modules/nyc/bin/nyc.js report --reporter=text",
+    "coveralls": "npm run cover && nyc report --reporter=text-lcov | coveralls"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/node-dmr/rx-operator"
+  },
+  "bugs": {
+    "url": "https://github.com/node-dmr/rx-operator/issues"
+  },
+  "homepage": "https://github.com/node-dmr/dmr",
+  "devDependencies": {
+    "@types/chai": "^4.1.4",
+    "@types/mocha": "^5.2.5",
+    "@types/node": "^10.9.4",
+    "@types/underscore": "^1.8.9",
+    "chai": "^4.1.2",
+    "coveralls": "^3.0.2",
+    "del": "^3.0.0",
+    "findup-sync": "^2.0.0",
+    "gulp": "^4.0.0",
+    "gulp-replace": "^1.0.0",
+    "gulp-typedoc": "^2.2.0",
+    "gulp-typescript": "^5.0.0-alpha.3",
+    "gulp-util": "^3.0.8",
+    "istanbul": "^0.4.5",
+    "jsdoc-to-markdown": "^4.0.1",
+    "mocha": "^5.2.0",
+    "nyc": "^13.0.1",
+    "source-map-support": "^0.5.9",
+    "ts-node": "^7.0.1",
+    "tslint": "^5.11.0",
+    "typedoc": "^0.12.0",
+    "typedoc-plugin-markdown": "^1.1.15",
+    "typescript": "^3.0.3"
+  },
+  "dependencies": {
+    "rxjs": "^6.3.3"
+  },
+  "engines": {
+    "node": ">= 6.0.x"
+  },
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "license": "MIT",
+  "author": "qiansc",
+  "nyc": {
+    "extension": [
+      ".ts",
+      ".tsx"
+    ],
+    "include": [
+      "src/**/*.ts"
+    ],
+    "exclude": [
+      "**/*.d.ts"
+    ],
+    "reporter": [
+      "html"
+    ],
+    "all": true
+  }
+}
