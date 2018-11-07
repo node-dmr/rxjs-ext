@@ -7,6 +7,6 @@ branches:
 install:
   - npm install
 script:
-  - npm test test/*.ts
+  - npm test test/**/*.ts
 after_success:
   - npm run coveralls
