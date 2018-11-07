@@ -1,13 +1,13 @@
-# rx-operator
+# RxJS-Ext
 ![Language](https://img.shields.io/badge/-TypeScript-blue.svg)
-[![Build Status](https://travis-ci.org/node-dmr/rx-operator.svg?branch=master)](https://travis-ci.org/node-dmr/rx-operator)
-[![Coveralls](https://img.shields.io/coveralls/node-dmr/rx-operator.svg)](https://coveralls.io/github/node-dmr/rx-operator)
-[![npm package](https://img.shields.io/npm/v/rx-operator.svg)](https://www.npmjs.org/package/rx-operator)
-[![npm downloads](http://img.shields.io/npm/dm/rx-operator.svg)](https://www.npmjs.org/package/rx-operator)
+[![Build Status](https://travis-ci.org/node-dmr/rxjs-ext.svg?branch=master)](https://travis-ci.org/node-dmr/rxjs-ext)
+[![Coveralls](https://img.shields.io/coveralls/node-dmr/rxjs-ext.svg)](https://coveralls.io/github/node-dmr/rxjs-ext)
+[![npm package](https://img.shields.io/npm/v/rxjs-ext.svg)](https://www.npmjs.org/package/rxjs-ext)
+[![npm downloads](http://img.shields.io/npm/dm/rxjs-ext.svg)](https://www.npmjs.org/package/rxjs-ext)
 
-# What's rx-operator
+# What's RxJS-Ext
 
-RxJs Operator For DMR
+RxJS Extensions For Data Mining
 
 # Features
 
@@ -15,4 +15,4 @@ RxJs Operator For DMR
 
 # API
 
-* [https://node-dmr.github.io/rx-operator/](https://node-dmr.github.io/rx-operator/)
+* [https://node-dmr.github.io/rxjs-ext/](https://node-dmr.github.io/rxjs-ext/)

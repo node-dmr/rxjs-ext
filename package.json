@@ -1,7 +1,7 @@
 {
-  "name": "rx-operator",
+  "name": "rxjs-ext",
   "version": "0.0.2",
-  "discription": "rxjs operator based on JS(TS)",
+  "discription": "RxJS Extensions For Data Mining",
   "scripts": {
     "preversion": "tsc && npm run lint && npm run cover",
     "lint": "tslint src/**/*.ts test/**/*.ts",
@@ -12,10 +12,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/node-dmr/rx-operator"
+    "url": "git+https://github.com/node-dmr/rxjs-ext"
   },
   "bugs": {
-    "url": "https://github.com/node-dmr/rx-operator/issues"
+    "url": "https://github.com/node-dmr/rxjs-ext/issues"
   },
   "homepage": "https://github.com/node-dmr/dmr",
   "devDependencies": {
