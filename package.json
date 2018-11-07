@@ -7,7 +7,7 @@
     "lint": "tslint src/**/*.ts test/**/*.ts",
     "doc": "gulp doc",
     "test": "node_modules/mocha/bin/_mocha --require ts-node/register --require source-map-support/register -t 3000 --recursive",
-    "cover": "node_modules/nyc/bin/nyc.js npm run test test/*.ts && node_modules/nyc/bin/nyc.js report --reporter=text",
+    "cover": "node_modules/nyc/bin/nyc.js npm run test test/**/*.ts && node_modules/nyc/bin/nyc.js report --reporter=text",
     "coveralls": "npm run cover && nyc report --reporter=text-lcov | coveralls"
   },
   "repository": {
@@ -20,6 +20,7 @@
   "homepage": "https://github.com/node-dmr/dmr",
   "devDependencies": {
     "@types/chai": "^4.1.4",
+    "@types/ftp": "^0.3.29",
     "@types/mocha": "^5.2.5",
     "@types/node": "^10.9.4",
     "@types/underscore": "^1.8.9",
@@ -27,6 +28,7 @@
     "coveralls": "^3.0.2",
     "del": "^3.0.0",
     "findup-sync": "^2.0.0",
+    "ftp-srv": "^3.0.1",
     "gulp": "^4.0.0",
     "gulp-replace": "^1.0.0",
     "gulp-typedoc": "^2.2.0",
@@ -44,6 +46,8 @@
     "typescript": "^3.0.3"
   },
   "dependencies": {
+    "fs-extra": "^7.0.0",
+    "ftp": "^0.3.10",
     "rxjs": "^6.3.3"
   },
   "engines": {
