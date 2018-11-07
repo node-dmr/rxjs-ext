@@ -2,7 +2,7 @@
  * @Author: qiansc
  * @Date: 2018-11-05 20:08:22
  * @Last Modified by: qiansc
- * @Last Modified time: 2018-11-07 17:50:52
+ * @Last Modified time: 2018-11-07 19:44:31
  */
 import * as Client from "ftp";
 import {Observable} from "rxjs";
@@ -23,7 +23,6 @@ export function fromFtp(option: FtpReadOption) {
         }
       });
     });
-    console.log(option);
     client.connect(option);
   });
 }

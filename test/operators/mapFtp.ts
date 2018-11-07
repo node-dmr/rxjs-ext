@@ -1,16 +1,18 @@
 /*
  * @Author: qiansc
- * @Date: 2018-11-05 22:15:47
+ * @Date: 2018-11-07 19:40:06
  * @Last Modified by: qiansc
- * @Last Modified time: 2018-11-07 19:49:11
+ * @Last Modified time: 2018-11-07 19:48:58
  */
 import {expect} from "chai";
 import {FtpSrv} from "ftp-srv";
 import * as path from "path";
-import {fromFtp} from "../../src";
+import {of} from "rxjs";
+import {concatAll} from "rxjs/operators";
+import {mapFtp, option} from "../../src";
 import log from "../extention/log";
 
-describe("fromFtp Test", () => {
+describe("mapFtp Test", () => {
   let server;
   before(() => {
     server = new FtpSrv({
@@ -29,11 +31,15 @@ describe("fromFtp Test", () => {
   });
 
   it("Ftp Download", () => {
-    const source = fromFtp({
-      host: "127.0.0.1",
-      path: "/ftp-test.dict",
-      port: 8880,
-    });
+    const source = of({}).pipe(
+      option({
+        host: "127.0.0.1",
+        path: "/ftp-test.dict",
+        port: 8880,
+      }),
+      mapFtp(),
+      concatAll(),
+    );
     let content = "";
     return new Promise((resolve, reject) => {
       source.subscribe(
@@ -43,26 +49,6 @@ describe("fromFtp Test", () => {
           log("Get Content => ", content);
           expect(content).to.be.eq("success-ftp");
           resolve();
-        },
-      );
-    });
-  });
-
-  it("Ftp Download Error Test", () => {
-    const source = fromFtp({
-      host: "127.0.0.1",
-      path: "/err",
-      port: 8880,
-    });
-    return new Promise((resolve, reject) => {
-      source.subscribe(
-        undefined,
-        (err) => {
-          console.log("Error has been caught: ", err);
-          resolve();
-        },
-        () => {
-          reject();
         },
       );
     });
