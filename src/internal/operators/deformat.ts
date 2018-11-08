@@ -2,7 +2,7 @@
  * @Author: qiansc
  * @Date: 2018-11-08 13:50:04
  * @Last Modified by: qiansc
- * @Last Modified time: 2018-11-08 16:43:07
+ * @Last Modified time: 2018-11-08 18:23:02
  */
 import * as Deformat from "deformat";
 import {Observable, Operator, OperatorFunction, Subscriber} from "rxjs";
@@ -31,11 +31,9 @@ export class DeformatOperator implements Operator<string, {[index: string]: stri
     this.handdler = Deformat(combined);
   }
   public call(subscriber: Subscriber<{[index: string]: string}>, source: Observable<string>): any {
-    console.log("link");
     source.subscribe(
       (origin) => {
         const rs: {[index: string]: string} = this.handdler.exec(origin);
-        console.log("exec");
         if (rs !== null) {subscriber.next(rs); }
       },
       (err) => {subscriber.error(err); },
