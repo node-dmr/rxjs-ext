@@ -2,7 +2,7 @@
  * @Author: qiansc
  * @Date: 2018-11-07 22:18:09
  * @Last Modified by: qiansc
- * @Last Modified time: 2018-11-07 22:59:11
+ * @Last Modified time: 2018-11-08 10:10:09
  */
 import * as fs from "fs";
 import {Observable} from "rxjs";
@@ -14,6 +14,8 @@ export function fromFile(option: string | FileReadOption) {
         path: option,
       };
     }
+    option.highWaterMark = option.highWaterMark || 10 * 1024;
+
     if (option.path && fs.existsSync(option.path)) {
       const stream = fs.createReadStream(option.path, option);
       stream.on("data", (chunk) => {subscriber.next(chunk); });
