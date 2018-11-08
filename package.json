@@ -28,7 +28,7 @@
     "coveralls": "^3.0.2",
     "del": "^3.0.0",
     "findup-sync": "^2.0.0",
-    "ftp-srv": "^3.0.1",
+    "ftp-srv": "^2.19.4",
     "gulp": "^4.0.0",
     "gulp-replace": "^1.0.0",
     "gulp-typedoc": "^2.2.0",

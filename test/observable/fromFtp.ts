@@ -2,7 +2,7 @@
  * @Author: qiansc
  * @Date: 2018-11-05 22:15:47
  * @Last Modified by: qiansc
- * @Last Modified time: 2018-11-07 19:49:11
+ * @Last Modified time: 2018-11-08 12:15:08
  */
 import {expect} from "chai";
 import {FtpSrv} from "ftp-srv";
@@ -13,11 +13,16 @@ import log from "../extention/log";
 describe("fromFtp Test", () => {
   let server;
   before(() => {
-    server = new FtpSrv({
+    server = new FtpSrv("ftp://127.0.0.1:8880", {
       anonymous: true,
       greeting: ["Welcome", "to", "the", "jungle!"],
-      url: "ftp://127.0.0.1:8880",
     });
+    // FtpSrv 3.0.1 types is error , wait to upgrade
+    // server = new FtpSrv({
+    //   anonymous: true,
+    //   greeting: ["Welcome", "to", "the", "jungle!"],
+    //   url: "ftp://127.0.0.1:8880",
+    // });
     server.on("login", ({username, password}, resolve, reject) => {
       if (username === "test" && password === "test" || username === "anonymous") {
         resolve({root: path.resolve(__dirname, "../extention/")});
