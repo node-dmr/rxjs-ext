@@ -2,19 +2,19 @@
  * @Author: qiansc
  * @Date: 2018-11-08 18:36:04
  * @Last Modified by: qiansc
- * @Last Modified time: 2018-11-09 00:08:28
+ * @Last Modified time: 2018-11-11 17:15:27
  */
 import {expect} from "chai";
 import {ConnectableObservable, defer, of, throwError} from "rxjs";
 import {map, publish} from "rxjs/operators";
-import {regexp} from "../../src";
+import {match} from "../../src";
 import log from "../extention/log";
 
 describe("Regexp Test", () => {
   it("Regexp: regexp option", () => {
     let count = 0;
     of("key=value").pipe(
-      regexp(/(\w+)=(\w+)/),
+      match(/(\w+)=(\w+)/),
     ).subscribe(
       (arr) => {
         log(arr);
@@ -32,7 +32,7 @@ describe("Regexp Test", () => {
   it("Regexp: not match", () => {
     let count = 0;
     of("key+value").pipe(
-      regexp("(\\w+)=(\\w+)"),
+      match("(\\w+)=(\\w+)"),
     ).subscribe(
       (arr) => {
         log(arr);
@@ -48,7 +48,7 @@ describe("Regexp Test", () => {
   it("Regexp: flags", () => {
     const rs: string[][] = [];
     of("load=999&domc=888").pipe(
-      regexp("(\\w+)=(\\w+)", "g"),
+      match("(\\w+)=(\\w+)", "g"),
     ).subscribe(
       (arr) => {
         log(arr);
@@ -66,7 +66,7 @@ describe("Regexp Test", () => {
   it("Error Caught", () => {
     const rs: string[][] = [];
     throwError("123").pipe(
-      regexp(/key/),
+      match(/key/),
     ).subscribe(
       (arr) => {throw new Error("Never should be here!"); },
       (err) => {log(err); },
