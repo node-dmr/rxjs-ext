@@ -20,3 +20,4 @@ coverage/
 
 # develop
 mydev*
+/debug/

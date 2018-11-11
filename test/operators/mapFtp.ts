@@ -2,7 +2,7 @@
  * @Author: qiansc
  * @Date: 2018-11-07 19:40:06
  * @Last Modified by: qiansc
- * @Last Modified time: 2018-11-08 12:15:04
+ * @Last Modified time: 2018-11-11 11:38:36
  */
 import {expect} from "chai";
 import {FtpSrv} from "ftp-srv";
@@ -27,7 +27,7 @@ describe("mapFtp Test", () => {
     // });
     server.on("login", ({username, password}, resolve, reject) => {
       if (username === "test" && password === "test" || username === "anonymous") {
-        resolve({root: path.resolve(__dirname, "../extention/")});
+        resolve({root: path.resolve(__dirname, "../assets/")});
       } else {
         reject("Bad username or password");
       }

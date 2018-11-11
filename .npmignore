@@ -31,3 +31,4 @@ mydev*
 /node_modules/
 test/
 src/
+/debug/
