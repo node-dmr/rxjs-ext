@@ -1,39 +1,64 @@
 /*
- * @Author: qiansc
- * @Date: 2018-11-14 11:43:15
+ * @Author: qiansc ]
+ * @Date: 2018-11-14 23:25:53
  * @Last Modified by: qiansc
- * @Last Modified time: 2018-11-14 11:46:58
+ * @Last Modified time: 2018-11-14 23:55:02
  */
+
 import {expect} from "chai";
-import {ConnectableObservable, defer, of, throwError} from "rxjs";
-import {map, publish} from "rxjs/operators";
+import {of, throwError} from "rxjs";
 import {filterPair} from "../../src";
 import log from "../extention/log";
 
 describe("FilterPair Test", () => {
-  it("Filter 1", () => {
+  it("String", () => {
     let count = 0;
-    of(["a", "A"], ["b", "B"]).pipe(
-      filterPair("a"),
-    ).subscribe(
-      (pair) => {
-        expect(pair[0]).to.be.eq("a");
-        expect(pair[1]).to.be.eq("A");
-        count ++;
-      },
-    );
-    expect(count).to.be.eq(1);
+    of(["load", "980"], ["domc", "1200"]).pipe(
+      filterPair("true"),
+    ).subscribe((pair) => {count++; log(pair); });
+    expect(count).to.be.eq(2);
+
+    log("count", count);
+
+    of(["load", "980"], ["domc", "1200"]).pipe(
+      filterPair("??"),
+    ).subscribe((pair) => {count++; log(pair); });
+    expect(count).to.be.eq(2);
   });
 
-  it("Filter keys", () => {
+  it("ExprLike", () => {
     let count = 0;
-    of(["a", "A"], ["b", "B"], ["b", "S"], ["d", "f"]).pipe(
-      filterPair("a", "b"),
+    of(["load", "980"], ["domc", "1200"]).pipe(
+      filterPair("`${index === 'load'}`"),
+    ).subscribe((pair) => {
+      count++; log(pair);
+      expect(pair[0]).to.be.eq("load");
+      expect(pair[1]).to.be.eq("980");
+    });
+    expect(count).to.be.eq(1);
+
+    log("count", count);
+
+    of(["load", "980"], ["domc", "1200"]).pipe(
+      filterPair("`${value > 1000}`"),
+    ).subscribe((pair) => {
+      count++; log(pair);
+      expect(pair[0]).to.be.eq("domc");
+      expect(pair[1]).to.be.eq("1200");
+    });
+    expect(count).to.be.eq(2);
+  });
+
+});
+
+describe("Operator FilterPair Error Caught", () => {
+  it("Error Caught", () => {
+    throwError("Err Info").pipe(
+      filterPair("err"),
     ).subscribe(
-      (pair) => {
-        count ++;
-      },
+      (arr) => {throw new Error("Never should be here!"); },
+      (err) => {log(err); },
+      () => {throw new Error("Never should be here!"); },
     );
-    expect(count).to.be.eq(3);
   });
 });
