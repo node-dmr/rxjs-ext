@@ -2,7 +2,7 @@
  * @Author: qiansc
  * @Date: 2018-10-29 23:12:50
  * @Last Modified by: qiansc
- * @Last Modified time: 2018-11-15 17:30:26
+ * @Last Modified time: 2018-11-15 23:41:05
  */
 export * from "./internal/types";
 
@@ -30,6 +30,7 @@ export * from "./internal/operators/option";
 export * from "./internal/operators/pair";
 export * from "./internal/operators/pairFromJson";
 export * from "./internal/operators/pairIterable";
+export * from "./internal/operators/recode";
 export * from "./internal/operators/selectPair";
 export * from "./internal/operators/shuntFile";
 export * from "./internal/operators/split";
