@@ -2,11 +2,10 @@
  * @Author: qiansc
  * @Date: 2018-11-15 23:39:58
  * @Last Modified by: qiansc
- * @Last Modified time: 2018-11-15 23:47:41
+ * @Last Modified time: 2018-11-15 23:48:39
  */
 import {expect} from "chai";
-import {ConnectableObservable, defer, of, throwError} from "rxjs";
-import {map, publish} from "rxjs/operators";
+import {of} from "rxjs";
 import {recode} from "../../src";
 import log from "../extention/log";
 
