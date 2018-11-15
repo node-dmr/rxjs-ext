@@ -2,14 +2,14 @@
  * @Author: qiansc
  * @Date: 2018-11-15 11:42:09
  * @Last Modified by: qiansc
- * @Last Modified time: 2018-11-15 13:15:08
+ * @Last Modified time: 2018-11-15 17:15:05
  */
 import {expect} from "chai";
 import {ConnectableObservable, of, throwError, timer} from "rxjs";
 import {Pair, uniquePairs} from "../../src";
 import log from "../extention/log";
 
-describe("uniquePairs Test", () => {
+describe("UniquePairs Test", () => {
   it("Cover", () => {
     const rs = [["a", "4"], ["b", "9"]];
     const result: Pair[][] = [];
@@ -66,4 +66,16 @@ describe("uniquePairs Test", () => {
     expect(result.join(",")).to.be.eq(rs.join(","));
   });
 
+});
+
+describe("Operator UniquePairs Error Caught", () => {
+  it("Error Caught", () => {
+    throwError("Err Info").pipe(
+      uniquePairs(),
+    ).subscribe(
+      (arr) => {throw new Error("Never should be here!"); },
+      (err) => {log(err); },
+      () => {throw new Error("Never should be here!"); },
+    );
+  });
 });

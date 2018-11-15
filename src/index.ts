@@ -2,7 +2,7 @@
  * @Author: qiansc
  * @Date: 2018-10-29 23:12:50
  * @Last Modified by: qiansc
- * @Last Modified time: 2018-11-15 11:55:18
+ * @Last Modified time: 2018-11-15 17:30:26
  */
 export * from "./internal/types";
 
@@ -25,6 +25,7 @@ export * from "./internal/operators/mergeBuffer";
 export * from "./internal/operators/modify";
 export * from "./internal/operators/modifyPair";
 export * from "./internal/operators/modifyPairInPairs";
+export * from "./internal/operators/modifyPairWith";
 export * from "./internal/operators/option";
 export * from "./internal/operators/pair";
 export * from "./internal/operators/pairFromJson";
