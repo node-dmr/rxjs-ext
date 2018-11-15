@@ -2,7 +2,7 @@
  * @Author: qiansc
  * @Date: 2018-10-29 23:12:50
  * @Last Modified by: qiansc
- * @Last Modified time: 2018-11-15 00:11:23
+ * @Last Modified time: 2018-11-15 11:55:18
  */
 export * from "./internal/types";
 
@@ -35,3 +35,4 @@ export * from "./internal/operators/split";
 export * from "./internal/operators/splitAll";
 export * from "./internal/operators/splitKeep";
 export * from "./internal/operators/toString";
+export * from "./internal/operators/uniquePairs";
